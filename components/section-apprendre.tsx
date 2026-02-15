@@ -99,7 +99,7 @@ export function SectionApprendre({
         <div className="mt-8">
           <button className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
             <Download className="h-4 w-4" />
-            Telecharger le support PDF
+            Telecharger l'application
           </button>
         </div>
       </div>
