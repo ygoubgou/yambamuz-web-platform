@@ -3,6 +3,7 @@ export interface Module {
   title: string
   description: string
   content: string[]
+  pdfUrl?: string
 }
 
 export interface Category {
@@ -25,12 +26,15 @@ export const categories: Category[] = [
         title: "Introduction a l'Econometrie",
         description: "Les fondamentaux de l'analyse econometrique",
         content: [
-          "L'econometrie est la branche de l'economie qui utilise des methodes statistiques et mathematiques pour analyser des donnees economiques. Elle permet de tester des hypotheses theoriques, d'estimer des relations entre variables et de faire des previsions quantitatives.",
-          "Le modele de regression lineaire simple constitue le point de depart de toute analyse econometrique. Il s'ecrit sous la forme Y = a + bX + e, ou Y represente la variable dependante, X la variable explicative, a l'ordonnee a l'origine, b le coefficient de pente, et e le terme d'erreur aleatoire.",
-          "Les hypotheses classiques du theoreme de Gauss-Markov garantissent que l'estimateur des Moindres Carres Ordinaires (MCO) est le meilleur estimateur lineaire non biaise (BLUE). Ces hypotheses incluent : la linearite du modele, l'exogeneite stricte des regresseurs, l'homoscedasticite des erreurs, l'absence d'autocorrelation, et la normalite des residus.",
-          "Les tests fondamentaux en econometrie comprennent le test de Student pour la significativite individuelle des coefficients, le test de Fisher pour la significativite globale du modele, le coefficient de determination R-carre pour mesurer la qualite de l'ajustement, ainsi que l'analyse approfondie des residus pour verifier les hypotheses du modele.",
-          "En pratique, l'econometricien doit egalement se soucier de problemes tels que la multicolinearite (correlation entre variables explicatives), l'endogeneite (correlation entre regresseurs et terme d'erreur), et la specification du modele (choix des variables, forme fonctionnelle).",
+        "L'econometrie est la discipline qui articule la theorie economique, les mathematiques et les statistiques. Son but est de quantifier les relations economiques, de tester la validite des theories (comme la loi d'Engel ou les fonctions de demande) et de produire des previsions robustes a partir de donnees empiriques.",
+        "Le modele de regression lineaire simple (Y = a + bX + u) est l'outil de base. Ici, l'estimateur des Moindres Carres Ordinaires (MCO) cherche a minimiser la somme des carres des residus. Geometriquement, la droite de regression passe obligatoirement par le point moyen (X_bar, Y_bar) du nuage de points, garantissant une erreur moyenne nulle.",
+        "L'efficacite des MCO repose sur les hypotheses de Gauss-Markov. Si ces conditions sont remplies (linearite, exogeneite stricte, homoscedasticite, absence d'autocorrelation), l'estimateur est dit BLUE (Best Linear Unbiased Estimator). Cela signifie qu'il est l'estimateur sans biais ayant la variance la plus faible parmi tous les estimateurs lineaires.",
+        "La qualite du modele s'evalue via l'Analyse de la Variance (ANOVA). La variation totale (SCT) est decomposee en variation expliquee par le modele (SCE) et variation residuelle (SCR). Le coefficient de determination R-carre, calculé comme le rapport SCE/SCT, mesure la part de la variabilite de Y capturee par les variables explicatives.",
+        "L'inference statistique permet de valider les resultats : le test de Student evalue la significativite individuelle de chaque coefficient (H0: beta = 0), tandis que le test de Fisher mesure la puissance globale du modele. Une p-value inferieure a 5% indique generalement que l'effet mesure n'est pas du au hasard.",
+        "En pratique, l'econometricien doit interpreter la nature des relations. Par exemple, dans un modele log-log, le coefficient est une elasticite, tandis que dans un modele semi-log, il represente un taux de croissance. Il faut rester vigilant face a l'heteroscedasticite (variance non constante des erreurs) ou a l'endogeneite, qui biaisent les resultats.",
+        "L'analyse des residus est l'etape finale cruciale. Elle permet de verifier graphiquement et statistiquement si les hypotheses de depart ne sont pas violees, garantissant ainsi la fiabilite des intervalles de prevision et la validite des conclusions economiques tirees du modele."
         ],
+        pdfUrl: "/cours/introduction-econometrie.pdf",
       },
       {
         id: "donnees-panels",

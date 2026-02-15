@@ -96,11 +96,26 @@ export function SectionApprendre({
 
         <div className="mt-10 h-px w-full bg-border" />
 
+        {/* PARTIE AMÉLIORÉE POUR LE TÉLÉCHARGEMENT */}
         <div className="mt-8">
-          <button className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+          <a
+            href={selectedModule.pdfUrl || "#"}
+            download={selectedModule.pdfUrl ? `${selectedModule.title}.pdf` : undefined}
+            className={`inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium transition-colors ${
+              selectedModule.pdfUrl 
+                ? "bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer" 
+                : "bg-gray-200 text-gray-500 cursor-not-allowed"
+            }`}
+            onClick={(e) => {
+              if (!selectedModule.pdfUrl) {
+                e.preventDefault();
+                alert("Le support PDF pour ce chapitre sera bientôt disponible !");
+              }
+            }}
+          >
             <Download className="h-4 w-4" />
-            Telecharger l'application
-          </button>
+            {selectedModule.pdfUrl ? "Telecharger le support PDF" : "PDF bientôt disponible"}
+          </a>
         </div>
       </div>
     )
